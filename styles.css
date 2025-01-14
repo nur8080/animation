@@ -665,3 +665,8 @@ img {
 .contact__button {
   margin-left: 0px; /* Keep the button on the left */
 }
+
+.contact__input:hover {
+  border-color: blue;
+  border-width: 2px;
+}

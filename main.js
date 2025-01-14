@@ -188,69 +188,52 @@ document.getElementById('contactForm').addEventListener('submit', async function
 // Adding hover and validation effects to the contact form inputs
 
 document.addEventListener("DOMContentLoaded", () => {
-    const inputs = document.querySelectorAll(".contact__input");
-    const emailInput = document.getElementById("email");
-  
-    // Add hover effect
-    inputs.forEach((input) => {
-      input.addEventListener("mouseover", () => {
-        input.style.borderColor = "blue";
-        input.style.borderWidth = "2px";
-      });
-  
-      input.addEventListener("mouseout", () => {
-        if (!input.value) {
-          input.style.borderColor = "var(--second-color)";
-          input.style.borderWidth = "1.5px";
-        }
-      });
-  
-      // Add focus and input effects
+  const inputs = document.querySelectorAll(".contact__input");
+  const emailInput = document.getElementById("email");
+
+  // Add focus and input effects
+  inputs.forEach((input) => {
       input.addEventListener("focus", () => {
-        input.style.borderColor = "blue";
-        input.style.borderWidth = "2px";
+          input.style.borderColor = "blue";
+          input.style.borderWidth = "2px";
       });
-  
+
       input.addEventListener("input", () => {
-        if (input !== emailInput) {
           input.style.borderColor = "green";
           input.style.borderWidth = "2px";
-        }
       });
-  
+
       input.addEventListener("blur", () => {
-        if (input.value) {
-          if (input !== emailInput) {
-            input.style.borderColor = "green";
-            input.style.borderWidth = "1.5px";
+          if (input.value) {
+              input.style.borderColor = "green";
+              input.style.borderWidth = "2px";
+          } else {
+              input.style.borderColor = "var(--second-color)";
+              input.style.borderWidth = "1.5px";
           }
-        } else {
-          input.style.borderColor = "var(--second-color)";
-          input.style.borderWidth = "1.5px";
-        }
       });
-    });
-  
-    // Validate email input dynamically
-    emailInput.addEventListener("input", () => {
+  });
+
+  // Validate email input dynamically
+  emailInput.addEventListener("input", () => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (emailRegex.test(emailInput.value)) {
-        emailInput.style.borderColor = "green";
-        emailInput.style.borderWidth = "2px";
+          emailInput.style.borderColor = "green";
+          emailInput.style.borderWidth = "2px";
       } else {
-        emailInput.style.borderColor = "var(--second-color)";
-        emailInput.style.borderWidth = "1.5px";
+          emailInput.style.borderColor = "var(--second-color)";
+          emailInput.style.borderWidth = "1.5px";
       }
-    });
-  
-    emailInput.addEventListener("blur", () => {
+  });
+
+  emailInput.addEventListener("blur", () => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailInput.value || !emailRegex.test(emailInput.value)) {
-        emailInput.style.borderColor = "red";
-        emailInput.style.borderWidth = "2px";
+          emailInput.style.borderColor = "red";
+          emailInput.style.borderWidth = "2px";
       } else {
-        emailInput.style.borderColor = "green";
-        emailInput.style.borderWidth = "1.5px";
+          emailInput.style.borderColor = "green";
+          emailInput.style.borderWidth = "2px";
       }
-    });
-  });  
+  });
+});
